@@ -3,7 +3,7 @@ import { Alert, Button, StyleSheet, TextInput, View } from "react-native";
 import { auth } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const Cadastro = () => {
+const Cadastro = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const cadastrar = () => {
@@ -11,7 +11,43 @@ const Cadastro = () => {
       Alert.alert("Atenção", "Você deve preecher e-mail e senha");
       return;
     }
-    createUserWithEmailAndPassword(auth, email, senha);
+    createUserWithEmailAndPassword(auth, email, senha)
+      .then(() => {
+        Alert.alert("Conta criada com sucesso", "Deseja entrar?", [
+          {
+            text: "NÃO",
+            onPress: () => {
+              return false;
+            },
+          },
+          {
+            text: "SIM",
+            onPress: () => {
+              navigation.navigate("AreaLogada");
+            },
+          },
+        ]);
+      })
+      .catch((error) => {
+        console.log(error);
+        let mensagem;
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            mensagem = "E-mail já cadastrado!";
+            break;
+          case "auth/weak-password":
+            mensagem = "Senha deve ter pelo menos 6 dígitos!";
+            break;
+          case "auth/invalid-email":
+            mensagem = "Endereço de e-mail inválido!";
+            break;
+          default:
+            0;
+            mensagem = "Algo deu errado... tente novamente!";
+            break;
+        }
+        Alert.alert("Atenção!", mensagem);
+      });
   };
   return (
     <View style={estilos.container}>
