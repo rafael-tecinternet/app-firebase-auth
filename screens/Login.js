@@ -84,7 +84,7 @@ const Login = ({ navigation }) => {
             color="green"
             onPress={login}
           />
-          {loading && <ActivityIndicator size={36} color="green" />}
+          {loading && <ActivityIndicator size="large" color="green" />}
           <Button
             title="Recuperar senha"
             color="darkgreen"
