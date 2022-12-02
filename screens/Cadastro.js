@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 const Cadastro = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState("");
   const cadastrar = () => {
     if (!email || !senha) {
       Alert.alert("Atenção", "Você deve preecher e-mail e senha");
@@ -47,6 +48,9 @@ const Cadastro = ({ navigation }) => {
             break;
         }
         Alert.alert("Atenção!", mensagem);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (
@@ -65,7 +69,12 @@ const Cadastro = ({ navigation }) => {
           onChangeText={(valor) => setSenha(valor)}
         />
         <View style={estilos.botoes}>
-          <Button onPress={cadastrar} title="Cadastre-se" color="blue" />
+          <Button
+            onPress={cadastrar}
+            disabled={loading}
+            title="Cadastre-se"
+            color="blue"
+          />
         </View>
       </View>
     </View>
