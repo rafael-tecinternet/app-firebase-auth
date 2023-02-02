@@ -4,32 +4,27 @@
     "slug": "app-auth",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/lock.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-auth.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffaa20"
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/0da2d74b-1fb7-42fb-84fe-550b01b77f76"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/adaptive-lock.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.rafaeltecinternet.appauth"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
