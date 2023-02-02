@@ -12,9 +12,12 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/0da2d74b-1fb7-42fb-84fe-550b01b77f76"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -32,6 +35,9 @@
         "projectId": "0da2d74b-1fb7-42fb-84fe-550b01b77f76"
       }
     },
-    "owner": "rafael-tecinternet"
+    "owner": "rafael-tecinternet",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }
